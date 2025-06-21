@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="mt-3">Add Category</h1>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="mt-3">
+      <div class="mt-3">
+      <label for="name" class="form-label">Category Name</label>
+       <input type="text" id="name" formControlName="name" class="form-control" />
+      <div *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched" class="text-danger">
+        Category Name is required.
+      </div>
+      </div>
+     <div class="mt-3">
+      <label for="name" class="form-label">Category Url</label>
+      <input type="text" id="urlHandle" formControlName="urlHandle" class="form-control" />
+      <div *ngIf="categoryForm.get('urlHandle')?.invalid && categoryForm.get('urlHandle')?.touched" class="text-danger">
+        URL Handle is required.
+      </div>
+      </div>
+      <div clas="mt-3">
+       <button type="submit" class="btn btn-primary mt-3" [disabled]="categoryForm.invalid" >Save</button>
+
+      </div>
+    </div>
+    <!-- <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">Add Category</button> -->
+  </form>
+
+</div>
